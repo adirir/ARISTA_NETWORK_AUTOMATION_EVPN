@@ -8,7 +8,7 @@ def search_dict_list(a_val, b_val, c_list):
 # Define Variables
 
 num_spines = 2
-num_leafs = 8
+num_leafs = 4
 p2p_range = '10.0.'
 lo0_range = '10.0.250.'
 lo1_range = '10.0.255.'
@@ -27,7 +27,7 @@ for i in range(num_leafs):
     device['interfaces'] = []
     device['bgp_neighbors'] = []
     device['evpn_neighbors'] = []
-    device['hostname'] = f'leaf{id}'
+    device['hostname'] = f'dc1-leaf{id}'
     device['loopback0_ip'] = f'{lo0_range}{id+10}'
     device['loopback1_ip'] = f'{lo1_range}{id+10}'
     if id%2 == 1:
@@ -40,7 +40,7 @@ for i in range(num_leafs):
         device['asn'] = asn-1
         device['bgp_neighbors'].append({'neighbor':f'{ibgp_range}{id-2}', 'remote_as': device['asn'], 'state': 'present'})
     for j in range(num_spines):
-        device['interfaces'].append({'interface':f'Ethernet{j+11}', 'address':f'{p2p_range}{j+1}.{n+1}', 'mask':'/31', 'description':f'spine{j+1}'})
+        device['interfaces'].append({'interface':f'Ethernet{j+11}', 'address':f'{p2p_range}{j+1}.{n+1}', 'mask':'/31', 'description':f'dc1-spine{j+1}'})
         device['bgp_neighbors'].append({'neighbor':f'{p2p_range}{j+1}.{n}', 'remote_as': asn_start, 'state': 'present'})
         device['evpn_neighbors'].append({'neighbor':f'{lo0_range}{j+1}', 'remote_as': asn_start, 'state': 'present'})
     device['interfaces'].append({'interface': f'Vlan{ibgp_vlan}', 'address':f'{ibgp_range}{i}', 'mask':'/31'})
@@ -61,7 +61,7 @@ for i in range(num_spines):
     device['interfaces'] = []
     device['bgp_neighbors'] = []
     device['evpn_neighbors'] = []
-    device['hostname'] = f'spine{id}'
+    device['hostname'] = f'dc1-spine{id}'
     device['loopback0_ip'] = f'{lo0_range}{id}'
     device['asn'] = asn
     n = 0

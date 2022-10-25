@@ -1,8 +1,9 @@
 {% for item in vrfs %}
-vrf definition {{ item.vrf_name }}
+vrf instance {{ item.vrf_name }}
 ip routing vrf {{ item.vrf_name }}
 {% endfor %}
-
+!
+!   
 router bgp {{ leaf_asn }}
 
 {% for item in vrfs %}

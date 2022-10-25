@@ -16,15 +16,15 @@ evpn_neighbors:
 - neighbor: 10.0.250.2
   remote_as: 65000
   state: present
-hostname: leaf1
+hostname: dc1-leaf1
 interfaces:
 - address: 10.0.1.1
-  description: spine1
-  interface: Ethernet11
+  description: dc1-spine1
+  interface: Ethernet1
   mask: /31
 - address: 10.0.2.1
-  description: spine2
-  interface: Ethernet12
+  description: dc1-spine2
+  interface: Ethernet2
   mask: /31
 - address: 10.0.3.0
   interface: Vlan4091
@@ -32,3 +32,10 @@ interfaces:
 loopback0_ip: 10.0.250.11
 loopback1_ip: 10.0.255.11
 side: left
+vrfs:
+# - vrf_name: USERS
+#   vrf_id: 3500
+#   vni: 12000
+
+
+  
