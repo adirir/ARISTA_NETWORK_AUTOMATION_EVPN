@@ -1,12 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Build Devices Configurations') {
+    stage('Reset Devices to Default configuration') {
       steps {
         sh 'ansible-playbook pb_arista_default_config.yml'
        }
       }
-    stage('Deploy configuration to Device') {
+    stage('Deploy configuration to Devices') {
       steps {
         sh 'ansible-playbook deploy_evpn.yml'
       }
