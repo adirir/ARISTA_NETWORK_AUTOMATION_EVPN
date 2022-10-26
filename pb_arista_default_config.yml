@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Delete Configuration
-      eos_config:
+      arista.eos.eos_config:
         lines:
           - default interface ethernet 1-8
           # - no management api http-commands
