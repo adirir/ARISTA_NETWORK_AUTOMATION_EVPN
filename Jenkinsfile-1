@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stages {
+    stage('Build Devices Configurations') {
+      steps {
+        sh 'ansible-playbook deploy_evpn.yml'
+       }
+      }
+    }
+  }
