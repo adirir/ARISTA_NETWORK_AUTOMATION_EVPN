@@ -1,6 +1,6 @@
 ---
 - name: Configure Interfaces
-  eos config:
+  eos_config:
     src: interfaces.j2
   tags:
     - interfaces
