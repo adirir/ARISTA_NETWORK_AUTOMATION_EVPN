@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build Devices Configurations') {
       steps {
-        sh 'ansible-playbook deploy_evpn.yml'
+        sh 'ansible-playbook pb_arista_default_config.yml'
        }
       }
     }
