@@ -1,6 +1,6 @@
 ---
 - name: Configure MLAG
-  arista.eos.eos_config:
+  eos_config:
     src: mlag.j2
   tags:
     - mlag
