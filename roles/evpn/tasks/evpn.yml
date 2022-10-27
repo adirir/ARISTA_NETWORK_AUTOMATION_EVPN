@@ -1,4 +1,4 @@
 ---
 - name: Configure EVPN
-  eos_config:
+  arista.eos.eos_config:
     src: evpn.j2

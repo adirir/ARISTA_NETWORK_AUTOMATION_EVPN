@@ -1,6 +1,6 @@
 ---
 - name: Configure BGP
-  eos_config:
+  arista.eos.eos_config:
     src: bgp.j2
   tags:
     - bgp
