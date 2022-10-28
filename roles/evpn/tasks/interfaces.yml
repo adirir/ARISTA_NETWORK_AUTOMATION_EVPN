@@ -1,6 +1,6 @@
 ---
 - name: Configure Interfaces
-  arista.eos.eos_config:
+  eos_config:
     src: interfaces.j2
   tags:
     - interfaces
