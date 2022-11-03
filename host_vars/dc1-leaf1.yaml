@@ -32,7 +32,3 @@ interfaces:
 loopback0_ip: 10.0.250.11
 loopback1_ip: 10.0.255.11
 side: left
-
-
-
-  
