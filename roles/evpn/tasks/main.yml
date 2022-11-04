@@ -6,3 +6,4 @@
   when: "'leafs' in group_names"
 - import_tasks: evpn.yml
 - import_tasks: build_config_dir.yml
+- import_tasks: generate_device_config.yml
