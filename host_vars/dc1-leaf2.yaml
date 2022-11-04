@@ -3,10 +3,10 @@ bgp_neighbors:
 - neighbor: 10.0.3.0
   remote_as: 65001
   state: present
-- neighbor: 10.0.1.2
+- neighbor: 10.0.1.5
   remote_as: 65000
   state: present
-- neighbor: 10.0.2.2
+- neighbor: 10.0.2.21
   remote_as: 65000
   state: present
 evpn_neighbors:
@@ -18,14 +18,14 @@ evpn_neighbors:
   state: present
 hostname: dc1-leaf2
 interfaces:
-- address: 10.0.1.3
+- address: 10.0.1.6
   description: dc1-spine1
   interface: Ethernet2
-  mask: /31
-- address: 10.0.2.3
+  mask: /30
+- address: 10.0.2.22
   description: dc1-spine2
   interface: Ethernet1
-  mask: /31
+  mask: /30
 - address: 10.0.3.1
   interface: Vlan4091
   mask: /31

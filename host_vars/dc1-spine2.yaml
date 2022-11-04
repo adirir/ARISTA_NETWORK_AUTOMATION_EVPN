@@ -1,15 +1,15 @@
 asn: 65000
 bgp_neighbors:
-- neighbor: 10.0.2.1
+- neighbor: 10.0.2.18
   remote_as: 65001
   state: present
-- neighbor: 10.0.2.3
+- neighbor: 10.0.2.22
   remote_as: 65001
   state: present
-- neighbor: 10.0.2.5
+- neighbor: 10.0.2.26
   remote_as: 65002
   state: present
-- neighbor: 10.0.2.7
+- neighbor: 10.0.2.30
   remote_as: 65002
   state: present
 evpn_neighbors:
@@ -27,20 +27,20 @@ evpn_neighbors:
   state: present
 hostname: dc1-spine2
 interfaces:
-- address: 10.0.2.0
+- address: 10.0.2.17
   description: leaf1
   interface: Ethernet2
-  mask: /31
-- address: 10.0.2.2
+  mask: /30
+- address: 10.0.2.21
   description: leaf2
   interface: Ethernet1
-  mask: /31
-- address: 10.0.2.4
+  mask: /30
+- address: 10.0.2.25
   description: leaf3
   interface: Ethernet3
-  mask: /31
-- address: 10.0.2.6
+  mask: /30
+- address: 10.0.2.29
   description: leaf4
   interface: Ethernet4
-  mask: /31
+  mask: /30
 loopback0_ip: 10.0.250.2
