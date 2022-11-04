@@ -3,9 +3,7 @@
   connection: local
   gather_facts: no
   
-  vars:
-    vrf_name: "{{ vrf_name }}"
-    vrf_id: "{{vrf_id }}"
+  vars_files: vrf_design.yml
 
   tasks:
   - name: Configure L3 VXLAN VRF

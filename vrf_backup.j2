@@ -9,7 +9,7 @@ router bgp {{ asn }}
 {% for item in vrfs %}
    vrf {{ item.vrf_name }}
       rd {{ loopback0_ip }}:{{ item.vrf_id }}
-      route-target import {{ item.vrf_id }}:{{ item.vrf_id }}
+      route-target import {{ item.vrf_id }}:{{ item.vrf_id|int + 100000 }}
       route-target export {{ item.vrf_id }}:{{ item.vni }}
       redistribute connected
 {% endfor %}

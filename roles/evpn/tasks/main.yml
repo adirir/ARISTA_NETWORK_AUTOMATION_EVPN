@@ -5,3 +5,4 @@
 - import_tasks: mlag.yml
   when: "'leafs' in group_names"
 - import_tasks: evpn.yml
+- import_tasks: build_config_dir.yml

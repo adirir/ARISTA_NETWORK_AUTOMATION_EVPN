@@ -40,10 +40,10 @@ for i in range(num_leafs):
         device['asn'] = asn-1
         device['bgp_neighbors'].append({'neighbor':f'{ibgp_range}{id-2}', 'remote_as': device['asn'], 'state': 'present'})
     for j in range(num_spines):
-        device['interfaces'].append({'interface':f'Ethernet{j+11}', 'address':f'{p2p_range}{j+1}.{n+1}', 'mask':'/31', 'description':f'dc1-spine{j+1}'})
+        device['interfaces'].append({'interface':f'Ethernet{j+11}', 'address':f'{p2p_range}{j+1}.{n+1}', 'mask':'/30', 'description':f'dc1-spine{j+1}'})
         device['bgp_neighbors'].append({'neighbor':f'{p2p_range}{j+1}.{n}', 'remote_as': asn_start, 'state': 'present'})
         device['evpn_neighbors'].append({'neighbor':f'{lo0_range}{j+1}', 'remote_as': asn_start, 'state': 'present'})
-    device['interfaces'].append({'interface': f'Vlan{ibgp_vlan}', 'address':f'{ibgp_range}{i}', 'mask':'/31'})
+    device['interfaces'].append({'interface': f'Vlan{ibgp_vlan}', 'address':f'{ibgp_range}{i}', 'mask':'/30'})
     leaf_list.append(device)
     n+=2
 
@@ -67,7 +67,7 @@ for i in range(num_spines):
     n = 0
     for j in range(num_leafs):
         leaf_asn = search_dict_list(f'leaf{j+1}','asn',leaf_list)
-        device['interfaces'].append({'interface':f'Ethernet{j+1}', 'address':f'{p2p_range}{id}.{n}', 'mask':'/31', 'description':f'leaf{j+1}'})
+        device['interfaces'].append({'interface':f'Ethernet{j+1}', 'address':f'{p2p_range}{id}.{n}', 'mask':'/30', 'description':f'leaf{j+1}'})
         device['bgp_neighbors'].append({'neighbor':f'{p2p_range}{id}.{n+1}', 'remote_as': leaf_asn, 'state': 'present'})
         device['evpn_neighbors'].append({'neighbor':f'{lo0_range}{j+11}', 'remote_as': leaf_asn, 'state': 'present'})
         n += 2

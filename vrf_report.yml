@@ -1,0 +1,19 @@
+---
+- name: " Play 1: Retrive All VLANs from Arista Switches"
+  hosts: leafs
+  vars_files: vrf_design.yml
+  tasks:
+    - name: "Get All VLANs"
+      eos_command:
+        commands: show vrf | json
+      register: show_vrf
+
+    # - debug: var=show_vlan
+    
+    - name: "Validate VLANs are Present"
+      assert:
+        that: (item.vrf_id | string) in show_vrf.stdout[0].vrfs.keys()
+        fail_msg: "VRF:{{ item.vrf_id }} is NOT configured "
+        success_msg: "VLAN:{{ item.vrf_id }} is configured "
+      loop: "{{ vrfs }}"
+      delegate_to: localhost

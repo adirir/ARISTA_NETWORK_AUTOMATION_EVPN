@@ -1,0 +1,6 @@
+---
+vrfs:
+  - vrf_name: USER_3500
+    vrf_id: 3500
+    vni: 3500
+
