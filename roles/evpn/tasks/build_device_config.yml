@@ -1,0 +1,29 @@
+---
+- name: Create Config Directory
+  file: path={{config_dir}} state=directory 
+  run_once: yes
+
+- name: "Interface Configuration"
+  template:
+    src: interfaces.j2
+    dest: "{{build_dir}}/01_intf.cfg"
+  tags: intf
+
+- name: "Underlay BGP Configuration"
+  template:
+    src: bgp.j2
+    dest: "{{build_dir}}/03_bgp.cfg"
+  tags: bgp
+
+- name: "Overlay BGP EVPN Configuration"
+  template:
+    src: evpn.j2
+    dest: "{{build_dir}}/04_evpn.cfg"
+  tags: evpn
+  
+- name: "VRF Configuration"
+  template:
+    src: vrf.j2
+    dest: "{{build_dir}}/01_intf.cfg"
+  tags: vrf
+  when: "'leafs' in group_names"

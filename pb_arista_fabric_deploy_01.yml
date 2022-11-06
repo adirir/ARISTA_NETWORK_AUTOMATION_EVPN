@@ -1,0 +1,16 @@
+---
+- name: "Build Arista DC Fabric"
+  hosts: all
+  tasks:
+    - name: Generate DC Fabric Configuration
+      import_role:
+        name: evpn
+      delegate_to: localhost
+      tags: build      
+    
+    # - name: "Deploy Configuration"
+    #   eos_config:
+    #     src: "{{config_dir}}/{{ inventory_hostname }}.cfg"
+    #     replace: config
+    #     save_when: changed
+    #   tags: deploy

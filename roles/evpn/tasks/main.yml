@@ -1,9 +1,24 @@
 ---
-# tasks file for evpn
-- import_tasks: interfaces.yml
-- import_tasks: bgp.yml
-- import_tasks: mlag.yml
-  when: "'leafs' in group_names"
-- import_tasks: evpn.yml
-- import_tasks: build_config_dir.yml
-- import_tasks: generate_device_config.yml
+- name: Build Required Directories
+  import_tasks: build_config_dir.yml
+  tags: [intf,bgp,vrf,evpn]
+
+- name: Build Device Configuration
+  import_tasks: build_device_config.yml
+
+- name: "Remove Old Assembled Config"
+  file: 
+    path: "{{config_dir}}/{{ inventory_hostname }}.cfg"
+    state: absent
+  tags: [intf,bgp,vrf,evpn]
+
+- name: Build Final Device Configuration
+  assemble:
+    src: "{{ build_dir }}"
+    dest: "{{config_dir}}/{{ inventory_hostname }}.cfg"
+  tags: [intf,bgp,vrf,evpn]
+
+- name: Remove Build Directory
+  file: path={{ tmp_dir }}  state=absent
+  run_once: yes
+  tags: [intf,bgp,vrf,evpn]

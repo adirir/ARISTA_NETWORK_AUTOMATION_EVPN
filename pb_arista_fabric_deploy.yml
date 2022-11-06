@@ -1,0 +1,42 @@
+---
+- name: "Build Arista DC Fabirc"
+  hosts: all
+  tasks:
+
+    - name: Create Config Directory
+      file: path={{config_dir}} state=directory 
+      run_once: yes
+
+    - name: "Create interface Configuration"
+      template:
+        src: ./roles/evpn/templates/interfaces.j2
+        dest: "{{config_dir}}/01_intf.cfg"
+      # delegate_to: localhost
+      tags: interfaces
+
+    - name: "Create bgp Configuration"
+      template:
+        src: ./roles/evpn/templates/bgp.j2
+        dest: "{{config_dir}}/02_bgp.cfg"
+      # delegate_to: localhost
+      tags: bgp
+
+    # - name: "Create EVPN Configuration"
+    #   template:
+    #     src: ./roles/evpn/templates/evpn.j2
+    #     dest: "{{config_dir}}/{{ inventory_hostname }}.cfg"
+    #   delegate_to: localhost
+    #   tags: evpn
+
+    # - name: "Create MLAG Configuration"
+    #   template:
+    #     src: ./roles/evpn/templates/mlag.j2
+    #     dest: "{{config_dir}}/{{ inventory_hostname }}.cfg"
+    #   delegate_to: localhost
+    #   tags: mlag
+
+    # - name: "Deploy Configuration"
+    #   eos_config:
+    #     src: "{{config_dir}}/{{ inventory_hostname }}.cfg"
+    #     save_when: changed
+    #   tags: deploy

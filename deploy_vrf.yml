@@ -9,3 +9,10 @@
   - name: Configure L3 VXLAN VRF
     eos_config:
       src: vrf.j2
+
+  - name: "Create vrf Configuration"
+    template:
+      src: vrf.j2
+      dest: "{{config_dir}}/{{ inventory_hostname }}.cfg"
+    delegate_to: localhost
+    tags: vrf

@@ -32,3 +32,7 @@ interfaces:
 loopback0_ip: 10.0.250.13
 loopback1_ip: 10.0.255.13
 side: left
+vrfs:
+  - vrf_name: USER_3500
+    vrf_id: 3500
+    vni: 3500

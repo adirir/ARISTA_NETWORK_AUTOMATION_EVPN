@@ -44,3 +44,4 @@ interfaces:
   interface: Ethernet4
   mask: /30
 loopback0_ip: 10.0.250.2
+loopback1_ip: 10.0.255.2
