@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Reset Devices to Default configuration') {
       steps {
-        sh 'ansible-playbook pb_arista_default_config.yml'
+        sh '~/NETWORK_AUTOMATION_EVPN/ansible-playbook pb_arista_default_config.yml'
        }
       }
     }
