@@ -3,6 +3,12 @@
   file: path={{config_dir}} state=directory 
   run_once: yes
 
+- name: "Management Configuration"
+  template:
+    src: mgmt.j2
+    dest: "{{build_dir}}/01_intf.cfg"
+  tags: mgmt
+
 - name: "Interface Configuration"
   template:
     src: interfaces.j2

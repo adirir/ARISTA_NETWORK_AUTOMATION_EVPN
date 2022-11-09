@@ -8,9 +8,11 @@ spanning-tree mode none
 !
 aaa authorization exec default local
 !
+{#
 {% for user in global.users%}
 username {{user.username}} privilege {{user.privilege}} role {{user.role|default('network-admin')}} secret {{user.password}}
 {% endfor%}
+#}
 !
 {% for dns_server in global.dns%}
 ip name-server vrf default {{ dns_server }}
@@ -24,9 +26,11 @@ interface Management1
    no lldp transmit
    no lldp receive
 !
-{% for p in global.mgmt_prefixes %}
-ip route vrf {{global.mgmt_vrf}} {{p}} {{global.mgmt_gw}}
-{% endfor %}
+{#
+# {% for p in global.mgmt_prefixes %}
+# ip route vrf {{global.mgmt_vrf}} {{global.mgmt_gw}}
+# {% endfor %}
+#}
 !
 ip routing
 ip routing vrf {{global.mgmt_vrf}}
