@@ -9,25 +9,25 @@ all:
               hosts:
                 dc1-leaf1:
                   ansible_host: 192.168.20.18
-                dc1-leaf2:
-                  ansible_host: 192.168.20.19
+                # dc1-leaf2:
+                #   ansible_host: 192.168.20.19
 
-            vtep2:
-              hosts:
-                dc1-leaf3:
-                  ansible_host: 192.168.20.20
-                dc1-leaf4:
-                  ansible_host: 192.168.20.21
+            # vtep2:
+            #   hosts:
+            #     dc1-leaf3:
+            #       ansible_host: 192.168.20.20
+            #     dc1-leaf4:
+            #       ansible_host: 192.168.20.21
 
           vars:
             ansible_network_os: eos
         
-        spines:
-          hosts:
-            dc1-spine1:
-              ansible_host: 192.168.20.22
-            dc1-spine2:
-              ansible_host: 192.168.20.23
-          vars:
-            ansible_network_os: eos
+        # spines:
+        #   hosts:
+        #     dc1-spine1:
+        #       ansible_host: 192.168.20.22
+        #     dc1-spine2:
+        #       ansible_host: 192.168.20.23
+        #   vars:
+        #     ansible_network_os: eos
         
