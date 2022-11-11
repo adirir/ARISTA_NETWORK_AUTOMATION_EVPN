@@ -11,7 +11,7 @@ global:
   mgmt_prefix: 24
   mgmt_prefixes:
   - 192.168.20.0/24
-  mgmt_vrf: MGMT
+  mgmt_vrf: mgmt
   # mlag_vlan: 4094
   # p2p_prefix: 31
   site: DC1
