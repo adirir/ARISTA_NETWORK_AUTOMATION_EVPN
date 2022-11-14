@@ -16,7 +16,7 @@ evpn_neighbors:
 - neighbor: 10.0.250.2
   remote_as: 65000
   state: present
-hostname: dc1-leaf1
+hostname: PolyTech-LEAF1
 interfaces:
 - address: 10.0.1.2
   description: dc1-spine1

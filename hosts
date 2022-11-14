@@ -8,7 +8,7 @@ all:
             vtep1:
               hosts:
                 dc1-leaf1:
-                  ansible_host: 192.168.20.18
+                  ansible_host: 192.168.20.62
                 # dc1-leaf2:
                 #   ansible_host: 192.168.20.19
 
