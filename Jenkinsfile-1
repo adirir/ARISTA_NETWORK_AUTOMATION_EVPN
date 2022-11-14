@@ -29,7 +29,7 @@ spec:
     stage('build Device configuration') {
       steps {
         container('ansible') {    
-        sh 'ansible-playbook pb_arista_fabric_deploy_01.yml --tags intf'
+        sh 'ansible-playbook pb_arista_fabric_deploy_01.yml --tags mgmt'
         }
       }
     } 
