@@ -1,0 +1,37 @@
+pipeline {
+  agent {  
+    kubernetes {
+      yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  serviceAccountName: jenkins
+  containers:
+  - name: ansible
+    image: asuuto/packer-ansible:latest
+    imagePullPolicy: Always
+    command:
+    - cat
+    tty: true
+  - name: terragrunt
+    image: asuuto/dco-terragrunt:1.0
+    imagePullPolicy: Always
+    command:
+    - cat
+    tty: true
+  imagePullSecrets:
+  - name: docker-hub-credentials
+"""
+    }
+  }
+
+  stages {
+    stage('build Device configuration') {
+      steps {
+        container('ansible') {    
+        sh 'ansible-playbook pb_arista_fabric_deploy_01.yml --tags mgmt'
+        }
+      }
+    } 
+  }
+}  
