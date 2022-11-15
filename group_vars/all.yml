@@ -15,8 +15,8 @@ global:
   # mlag_vlan: 4094
   # p2p_prefix: 31
   site: DC1
-#   users:
-#   -   password: H0n3yb@dg3r
-#       privilege: 15
-#       role: network-admin
-#       username: cvpadmin
+  users:
+  -   password: H0n3yb@dg3r
+      privilege: 15
+      role: network-admin
+      username: cvpadmin
