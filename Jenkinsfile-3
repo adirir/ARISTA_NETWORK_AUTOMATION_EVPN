@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stages {
+    stage('build Device configuration') {
+      steps {
+        sh 'ansible-playbook pb_arista_fabric_deploy_01.yml --tags mgmt'
+       }
+      }
+   }
+ }
