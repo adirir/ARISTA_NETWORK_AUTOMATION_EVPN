@@ -7,9 +7,9 @@ all:
           children:
             vtep1:
               hosts:
-                dc1-leaf1:
+                PolyTech-LEAF1:
                   ansible_host: 10.211.231.11
-                dc1-leaf2:
+                PolyTech-LEAF2:
                   ansible_host: 10.211.231.12
 
             # vtep2:
@@ -30,9 +30,9 @@ all:
         
         spines:
           hosts:
-            dc1-spine1:
+            PolyTech-SPINE1:
               ansible_host: 10.211.231.13
-            dc1-spine2:
+            PolyTech-SPINE2:
               ansible_host: 10.211.231.14
           vars:
             ansible_network_os: eos
