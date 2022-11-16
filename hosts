@@ -18,6 +18,9 @@ all:
             #       ansible_host: 192.168.20.20
             #     dc1-leaf4:
             #       ansible_host: 192.168.20.21
+          vars:
+            ansible_network_os: eos
+            
         l2leafs:
            hosts:
              PolyTech-L2LEAF1B:
