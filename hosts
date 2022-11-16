@@ -22,9 +22,9 @@ all:
             ansible_network_os: eos
 
         l2leafs:
-            hosts:
-              PolyTech-L2LEAF1B:
-                  ansible_host: 10.211.231.60
+          hosts:
+            PolyTech-L2LEAF1B:
+              ansible_host: 10.211.231.60
           vars:
             ansible_network_os: eos
         
