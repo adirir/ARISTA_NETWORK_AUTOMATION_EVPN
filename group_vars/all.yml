@@ -7,10 +7,10 @@ global:
   - 192.168.20.5
   # fabric_subnet: 172.31.1.0/24
   # loopback_subnet: 10.100.1.0/24
-  mgmt_gw: 192.168.20.1
-  mgmt_prefix: 24
+  mgmt_gw: 10.211.231.1
+  mgmt_prefix: 26
   mgmt_prefixes:
-  - 192.168.20.0/24
+  - 10.211.231.0/26
   mgmt_vrf: mgmt
   # mlag_vlan: 4094
   # p2p_prefix: 31
