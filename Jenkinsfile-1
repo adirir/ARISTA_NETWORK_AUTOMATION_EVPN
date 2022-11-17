@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage(vault password creds) {
+    stage('vault password creds') {
      environment {
         vault_pass = credentials('my_jenkinsfile_vault')
       }
