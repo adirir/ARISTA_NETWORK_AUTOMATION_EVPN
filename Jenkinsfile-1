@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('vault password creds') {
      environment {
-        vault_pass = credentials('my_jenkinsfile_vault1')
+        vault_pass = credentials('my_jenkins_vault3')
       }
       steps {
         sh "echo 'My secret file is $vault_pass'"
