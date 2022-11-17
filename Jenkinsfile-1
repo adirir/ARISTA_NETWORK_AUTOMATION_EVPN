@@ -1,6 +1,14 @@
 pipeline {
   agent any
   stages {
+    stage {
+      environment {
+        vault_pass = credentials('my_jenkinsfile_vault')
+      }
+      steps {
+        sh "echo 'My secret file is $vault_pass'"
+      }
+    }
     stage('build Device configuration') {
       steps {
         sh 'ansible-playbook pb_arista_fabric_deploy_01.yml --tags mgmt'
