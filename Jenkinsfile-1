@@ -2,9 +2,10 @@ pipeline {
   agent any
   stages {
     stage {
-      environment {
+    environment {
         vault_pass = credentials('my_jenkinsfile_vault')
       }
+    }
       steps {
         sh "echo 'My secret file is $vault_pass'"
       }
