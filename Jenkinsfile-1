@@ -6,7 +6,7 @@ pipeline {
         vault_pass = credentials('my_jenkins_vault3')
       }
       steps {
-        sh "echo 'My secret file is $vault_pass'"
+        sh "echo 'My secret file: ${vault_pass}'"
       }
     }
     stage('build Device configuration') {
