@@ -11,7 +11,7 @@ pipeline {
     }
     stage('build Device configuration') {
       steps {
-        sh 'ansible-playbook --vault-password-file ${vault_pass} pb_arista_fabric_deploy_01.yml --tags mgmt'
+        sh 'ansible-playbook --vault-password-file vault_pass pb_arista_fabric_deploy_01.yml --tags mgmt'
        }
       }
     } 
