@@ -1,30 +1,5 @@
 pipeline {
-  agent {  
-    kubernetes {
-      yaml """
-apiVersion: v1
-kind: Pod
-spec:
-  serviceAccountName: jenkins
-  containers:
-  - name: ansible
-    image: asuuto/packer-ansible:latest
-    imagePullPolicy: Always
-    command:
-    - cat
-    tty: true
-  - name: terragrunt
-    image: asuuto/dco-terragrunt:1.0
-    imagePullPolicy: Always
-    command:
-    - cat
-    tty: true
-  imagePullSecrets:
-  - name: docker-hub-credentials
-"""
-    }
-  }
-
+  agent any
   stages {
     stage('vault password creds') {
      environment {
@@ -36,10 +11,8 @@ spec:
     }
     stage('build Device configuration') {
       steps {
-        container('ansible') {    
         sh 'ansible-playbook --vault-password-file vault_pass pb_arista_fabric_deploy_01.yml --tags mgmt'
-        }
+       }
       }
     } 
-  }
-}  
+}
